@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bu kim? · Zübeyde Hanım Edition</title>
+<title>Kim bu? · Zübeyde Hanım Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Caveat:wght@700&family=Kaushan+Script&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -65,18 +65,33 @@ var CFG={apiKey:"AIzaSyC08eIAfU1bO24Bhiv5LhRXm0tt4RyVlu4",authDomain:"eslesmemi.
    q: soru metni
    a: doğru cevap  →  "m" = Mustafa, "a" = Samet, "y" = Yiğitalp
    Soru sayısı bu listenin uzunluğudur; oyun içinde değiştirilemez.
-   !!! Aşağıdakiler ÖRNEK sorular ve ÖRNEK cevaplardır, kendi sorularınla değiştir. !!! */
+   */
 var QS=[
- {q:"Kim yeni tanıştığı insanların isimlerini daha ilk dakikada unutur?",a:"m"},
- {q:"Kim bir mağazada indirim gördüğünde aslında ihtiyacı olmayan bir şeyi satın alır?",a:"y"},
- {q:"Kim bir olayı daha önce anlattığını unutup tekrar tekrar anlatır?",a:"a"},
- {q:"Kim arkadaş grubunda bir yere gidilecekse ulaşım ve saat planlamasını kendiliğinden üstlenir?",a:"m"},
- {q:"Kim bir şey yaparken belirlediği sıranın bozulmasına tahammül edemez?",a:"y"},
- {q:"Kim markete “sadece ekmek alacağım” diye girip poşet dolusu ıvır zıvırla çıkar?",a:"a"},
- {q:"Kim en kolay sinirlenen kişidir?",a:"y"},
- {q:"Kim en ciddi ortamda bile kendisini tutamayıp gülmeye başlar?",a:"a"},
- {q:"Kim yapması gereken bir işi son ana kadar erteleyip sonra panikle yetiştirmeye çalışır?",a:"m"},
- {q:"Kim para biriktirme konusunda en disiplinli kişidir?",a:"y"}
+ {q:"Tifliste diğer ikisinin güreşmelerini videoya çeken o kimdir?",a:"m"},
+ {q:"Gece çok sarhoş olup, ses tonunu ayarlamakta güçlük çekip, bir de üstüne evdeki paspası kıran o kişi kimdir?",a:"a"},
+ {q:"Beraber uyuduğu arkadaşına: “kanka horladın ama horlaman beni uyuttu” diyen o kişi kimdir?",a:"y"},
+ {q:"Uyurken bacak bacak üstüne atan o kişi kimdir?",a:"y"},
+ {q:"Tifliste kasiyerlerle ve taksicilerle konuşan o kişi kimdir?",a:"m"},
+ {q:"Tiflisdeki kilisede mikrofonu eline alıp Cuma hutbesi vermeye başlamış olan o kişi kimdir?",a:"a"},
+ {q:"Gürcü ana heykeline tırmanırken birkaç kere mola vermeyi teklif etmiş o kişi kimdir?",a:"m"},
+ {q:"Kardeşiyle evde futbol oynarken televizyonu vurup, televizyon bozulup ekranda mavi bir çizgi çıkınca da bir şey olmamış gibi babasını kandırmaya çalışan o kişi kimdir?",a:"y"},
+ {q:"Ortaokulda sınıfta top oynarken lambayı kıran o kişi kimdir?",a:"a"},
+ {q:"Birinci sınıfta annemi istiyorum diye ağlayıp, yaklaşık 1 ay boyunca okuldaki herkese problem çıkarmış o kişi kimdir?",a:"m"},
+ {q:"Kardeşinin uğradığı haksızlığa dayanamayıp, ona bunu yapan çocuğun kolunu kıran o kişi kimdir?",a:"y"},
+ {q:"Tifliste kimsenin müslüman olmamasına aldırış göstermeden “helal price” sloganıyla pazarlık yapmaya çalışan o kişi kimdir?",a:"a"},
+ {q:"Tifliste her yerin fotoğrafını titizlikle çekip bunların yalnızca yüzde 10’unu grupla paylaşan o kişi kimdir?",a:"a"},
+ {q:"“Abi yaşamak lazım” diyen o kişi kimdir?",a:"y"},
+ {q:"“Ne kadar kötü olabilir ki?” diyen o kişi kimdir?",a:"a"},
+ {q:"“Hiç mi yok?” diyen o kişi kimdir?",a:"y"},
+ {q:"Diğer ikisinin her konuda zıtlaşabilmesine sürekli mizahı ile yaklaşan o kişi kimdir?",a:"a"},
+ {q:"Patavatsızlığı ile nam salmış o kişi kimdir?",a:"a"},
+ {q:"Dini görüşünden bağımsız, neredeyse yeni bir din kurmuş olan o kişi kimdir?",a:"y"},
+ {q:"İzmirde şanssız bir navigasyon hadisesi sonrası grubu neredeyse kuduz köpeklere yem etmiş olan o kişi kimdir?",a:"m"},
+ {q:"Gittiği her yerde kasiyerler ve garsonlardan sebepsiz yere kötü muamele gören o kişi kimdir?",a:"a"},
+ {q:"İlkokulda arkadaşlarıyla ellerini trambolin yapıp, gelen arkadaşı atlamak üzereyken anlaşmalı şekilde elini çekip, bu zalimliğe ortak olmuş olan o kişi kimdir?",a:"m"},
+ {q:"Çok sarhoş olunan bir gecede 3 denemeye rağmen kendisine ambulans gelmemiş olan o şanssız kişi kimdir?",a:"y"},
+ {q:"Yaklaşık 5-6 skoru olup gruptan en çok insanı uzaklaştırmasıyla kötü nam salmış o kişi kimdir?",a:"m"},
+ {q:"Single arkadaşına uygun bir eş bulmak için çok çaba göstermiş olmasına rağmen her seferinde başarısız olmuş o kişi kimdir?",a:"m"}
 ];
 var QDUR=15;      /* her soru için süre (sn) */
 var VDUR=30;      /* oylama süresi (sn) */
@@ -215,7 +230,7 @@ function lobby(){
   var id=T[t].p,o=RL[id],mine=o===uid;
   h+='<div class="card"><div class="tn">'+pic(t)+'<h2 style="margin:0">'+esc(T[t].n)+' Takımı</h2></div><button class="'+T[t].c+(mine?' me':'')+'"'+(o&&!mine?' disabled':'')+' onclick="claim(\''+id+'\')">'+esc(R[id].n)+(mine?' (sen)':(o?' (dolu)':' ol'))+'</button></div>';
  });
- h+='<div class="card"><h2>İzleyiciler</h2><p>Her şeyi canlı görür ama işaretleyemez. Soru sonunda berabere kalınırsa hangi takımın kazanacağına oy verir.</p>'+SPEC.map(function(id){
+ h+='<div class="card"><h2>İzleyiciler</h2>'+SPEC.map(function(id){
   var o=RL[id],mine=o===uid;return '<button class="y'+(mine?' me':'')+'"'+(o&&!mine?' disabled':'')+' onclick="claim(\''+id+'\')">'+esc(R[id].n)+(mine?' (sen)':(o?' (dolu)':' ol'))+'</button>'}).join('')+'</div>';
  if(host())h+='<button onclick="startGame()"'+(allRoles()?'':' disabled')+'>Oyunu Başlat ('+N+' soru)</button>'+(allRoles()?'':'<p style="text-align:center">Başlamak için beş rolün de seçilmiş olması gerekir.</p>');
  else h+='<p style="text-align:center">Oyunu kuran kişinin başlatması bekleniyor...</p>';
@@ -268,7 +283,7 @@ function render(){
  var h="",E=err?'<div class="er">'+esc(err)+'</div>':'';
  if(!joined){
   if(document.activeElement&&document.activeElement.id==="cd")return;
-  h=VS(' home')+'<div class="halo"><h1 class="logo">Bu kim?</h1><div class="edt">Zübeyde Hanım Edition</div></div><button onclick="enter(true)">Oyun Kur</button><div class="card" style="margin-top:14px"><input id="cd" placeholder="OYUN KODU" maxlength="6"><button class="alt" onclick="enter(false)">Oyuna Katıl</button>'+E+'</div>';
+  h=VS(' home')+'<div class="halo"><h1 class="logo">Kim bu?</h1><div class="edt">Zübeyde Hanım Edition</div></div><button onclick="enter(true)">Oyun Kur</button><div class="card" style="margin-top:14px"><input id="cd" placeholder="OYUN KODU" maxlength="6"><button class="alt" onclick="enter(false)">Oyuna Katıl</button>'+E+'</div>';
  }else if(!G)h='<div class="card"><p>Oyun yükleniyor...</p>'+E+'</div>';
  else if(G.phase==="lobby"){h=lobby()+E;cfOn=false;early=""}
  else if(G.phase==="vote")h=voteScr();
