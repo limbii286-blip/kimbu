@@ -92,7 +92,9 @@ var QS=[
  {q:"Yaklaşık 5-6 skoru olup gruptan en çok insanı uzaklaştırmasıyla kötü nam salmış o kişi kimdir?",a:"m"},
  {q:"Single arkadaşına uygun bir eş bulmak için çok çaba göstermiş olmasına rağmen her seferinde başarısız olmuş o kişi kimdir?",a:"m"}
 ];
-var QDUR=15;      /* her soru için süre (sn) */
+var QDUR=15;      /* normal soru süresi (sn) */
+var QLONG=20,LONGLEN=90;  /* LONGLEN karakter ve üzeri sorular QLONG sn */
+function durOf(q){return q.length>=LONGLEN?QLONG:QDUR}
 var VDUR=30;      /* oylama süresi (sn) */
 var FAST=5;       /* herkes işaretleyince kalan süre en fazla bu kadar sn olur */
 
@@ -156,7 +158,8 @@ function allRoles(){return RL.s&&RL.v&&RL.m&&RL.a&&RL.y}
 function startGame(){
  if(!allRoles())return;
  var ord=QS.map(function(_,i){return i});for(var i=ord.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=ord[i];ord[i]=ord[j];ord[j]=t}
- ref(B()+"/m").update({phase:"play",r:0,dur:QDUR,endsAt:now()+QDUR*1000,win:null,ord:ord});
+ var d0=durOf(QS[ord[0]].q);
+ ref(B()+"/m").update({phase:"play",r:0,dur:d0,endsAt:now()+d0*1000,win:null,ord:ord});
 }
 async function resetGame(){
  try{await ref(B()+"/a").remove();await ref(B()+"/v").remove();await ref(B()+"/m").update({phase:"lobby",r:0,endsAt:0,dur:null,win:null,ord:null})}catch(e){fe(e)}
@@ -193,7 +196,8 @@ function tally(){var c={t:0,i:0};SPEC.forEach(function(id){if(V[id]==="t"||V[id]
 function missing(){return SPEC.filter(function(id){return !V[id]})}
 function nextQ(){
  if(!host()||G.r>=N-1)return;
- ref(B()+"/m").update({r:G.r+1,dur:QDUR,endsAt:now()+QDUR*1000});
+ var dn=durOf(Q(G.r+1).q);
+ ref(B()+"/m").update({r:G.r+1,dur:dn,endsAt:now()+dn*1000});
 }
 /* son soru bittikten sonra sonuçlar birkaç saniye görünsün, sonra otomatik ilerle */
 function autoNext(){
